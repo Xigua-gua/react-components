@@ -21,7 +21,6 @@ import {
   CameraRoll,
 } from 'react-native'
 
-import Toast from '../toast'
 
 const Window = {
   width: Dimensions.get('window').width,
@@ -186,10 +185,9 @@ class ImageViewer extends Component {
   handleSaveImg() {
     CameraRoll.saveToCameraRoll(this.currentImg)
       .then(() => {
-        this.toast.show({text:'图片保存成功'})
         this.handleCloseModal()
       })
-      .catch(() => this.toast.show('保存失败'))
+      .catch(() => console.log('保存失败'))
   }
   handleScroll(e) {
     const offsetX = e.nativeEvent.contentOffset.x
@@ -341,7 +339,6 @@ class ImageViewer extends Component {
         </ScrollView>
         { this.renderDelModal() }
         { this.renderSaveModal() }
-        <Toast ref={(ref) => {this.toast = ref}}/>
       </View>
     )
   }

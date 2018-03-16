@@ -1,7 +1,5 @@
 /**
- * @desc 头像选取组件
- * @author Jafeney<Jafeney@yijunet.cc>
- * @date 2017-06-28
+
  */
 
 import uuid from 'uuid'
