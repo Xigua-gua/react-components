@@ -1,6 +1,5 @@
 /**
- * @desc 银行卡选择器
- * @createDate 2017-10-18
+ * 城市选择器
  * */
 
 import React, { Component } from 'react'
@@ -17,7 +16,7 @@ import {
   TextInput,
 } from 'react-native'
 import { ADDRESSLIST } from './data'
-import NavigatorBar from '../navigator'
+import NavigatorBar from '../../components/navigator'
 import { navigate } from '../../navigate'
 import Search from './search'
 

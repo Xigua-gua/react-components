@@ -20,7 +20,7 @@ import {
 } from 'react-native'
 import sectionListGetItemLayout from 'react-native-section-list-get-item-layout'
 import { CITYLIST } from './data2'
-import NavigatorBar from '../navigator'
+import NavigatorBar from '../../components/navigator'
 import { navigate } from '../../navigate'
 import styles from './style'
 

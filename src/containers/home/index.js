@@ -69,7 +69,6 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.item}>
-
         <Text>Home Screen</Text>
         <Text>选择的城市是:{this.state.city}</Text>
         <View

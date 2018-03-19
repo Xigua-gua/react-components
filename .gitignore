@@ -1,6 +1,11 @@
 # OSX
 #
 .DS_Store
+android
+ios
+__tests__
+*.lock
+package-lock.json
 
 # Xcode
 #

@@ -11,4 +11,3 @@ export const HEADERS = {
     'Referer': 'http://' + API_URI + '/',
 }
 export const USER_KEY = '@Rntest:USER';
-export const AMAP_KEY = '65d22bda3f04419a68a16081814b1ce8'
