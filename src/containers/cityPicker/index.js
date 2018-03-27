@@ -124,13 +124,6 @@ export default class CityPicker extends Component {
 
   // 跳转到所选索引的列表
   _onSectionselect(index){
-    // console.log('letter[index]',letter[index])
-    // let totalheight = getTotal()
-    // console.log('totalheight->',totalheight)
-    // let position = 0
-    // for(let i = 0; i < index; i++){
-    //    position += totalheight[i]
-    // }
     if (this.state.jumpIndex == index ) {
       return
     }
@@ -184,7 +177,6 @@ export default class CityPicker extends Component {
     )
   }
   handleSearch(t) {
-    // console.log('data->',this.state.dataSource)
     // console.log('t',t)
     this.setState({
       text: t,
@@ -219,42 +211,44 @@ export default class CityPicker extends Component {
           needVerity
           onReturn={() => this.props.navigation.goBack()}
         />
-        <TextInput
-          style={{height: 32,marginLeft: 10,paddingBottom:2,
-            backgroundColor:'#D3D3D3',marginTop: 5,borderRadius:5,paddingTop:2}}
-          onChangeText={(text) => this.handleSearch(text)}
-          width={300}
-          value={this.state.text}
-          placeholder='城市/拼音'
-          underlineColorAndroid='transparent'
-          inlineImageLeft='./icon-enter.png'
-        />
-      <View style={{marginBottom:5}}>
-        <Text style={{marginLeft : 10,marginTop: 5,marginBottom:5}}>当前选择:</Text>
-        <View style={{}}>
-          <Text style={{marginLeft: 16,color: '#333',}}>{this.state.currentCity}</Text>
+        <View>
+          <TextInput
+            style={{height: 32,marginLeft: 10,paddingBottom:2,
+              backgroundColor:'#D3D3D3',marginTop: 5,borderRadius:5,paddingTop:2}}
+            onChangeText={(text) => this.handleSearch(text)}
+            width={300}
+            value={this.state.text}
+            placeholder='城市/拼音'
+            underlineColorAndroid='transparent'
+            inlineImageLeft='./icon-enter.png'
+          />
+          <View style={{marginBottom:5}}>
+            <Text style={{marginLeft : 10,marginTop: 5,marginBottom:5}}>当前选择:</Text>
+            <View style={{}}>
+              <Text style={{marginLeft: 16,color: '#333',}}>{this.state.currentCity}</Text>
+            </View>
+            <Text style={{marginLeft : 10,marginTop: 5,marginBottom:5}}>定位/最近访问</Text>
+            <View style={{}}>
+              <Text style={{marginLeft: 16,color: '#333',}}>{this.state.currentPosition}</Text>
+            </View>
+            <Text style={{marginLeft : 10,marginTop: 5}}>城市列表</Text>
+          </View>
+          <View style={styles.letters}>
+            {letter.map((i, index) => this._renderLetters(i, index))}
+          </View>
         </View>
-        <Text style={{marginLeft : 10,marginTop: 5,marginBottom:5}}>定位/最近访问</Text>
-        <View style={{}}>
-          <Text style={{marginLeft: 16,color: '#333',}}>{this.state.currentPosition}</Text>
+        <View style={styles.sections}>
+          <SectionList
+            ref={ref => this.sectionList = ref}
+            renderItem={({item}) => this._renderItem(item)}
+            renderSectionHeader={({section}) => this._renderSectionHeader(section)}
+            sections={this.state.dataSource}
+            stickySectionHeadersEnabled={true}
+            ItemSeparatorComponent={() => (<View style={{backgroundColor: '#eee', height:0.2}}></View>)}
+            ListFooterComponent={() => (<Text style={styles.footerText}>没有更多啦</Text>)}
+            getItemLayout={this.getItemLayout}
+          />
         </View>
-        <Text style={{marginLeft : 10,marginTop: 5}}>城市列表</Text>
-      </View>
-      <View style={styles.sections}>
-        <View style={styles.letters}>
-          {letter.map((i, index) => this._renderLetters(i, index))}
-        </View>
-        <SectionList
-          ref={ref => this.sectionList = ref}
-          renderItem={({item}) => this._renderItem(item)}
-          renderSectionHeader={({section}) => this._renderSectionHeader(section)}
-          sections={this.state.dataSource}
-          stickySectionHeadersEnabled={true}
-          ItemSeparatorComponent={() => (<View style={{backgroundColor: '#eee', height:0.2}}></View>)}
-          ListFooterComponent={() => (<Text style={styles.footerText}>没有更多啦</Text>)}
-          getItemLayout={this.getItemLayout}
-        />
-      </View>
       </View>
     )
   }

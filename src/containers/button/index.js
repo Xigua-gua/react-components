@@ -7,9 +7,9 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  ToastAndroid,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Toast from '@remobile/react-native-toast'
 import Button from '../../components/button'
 import Address from '../../components/address'
 import Grid from '../../components/grid'
@@ -32,6 +32,9 @@ export default class myButton extends Component {
       address: ads,
     })
   }
+  handleToast(t) {
+    ToastAndroid.showWithGravity(t,ToastAndroid.SHORT,ToastAndroid.BOTTOM,)
+  }
   render() {
     // console.log('data->',DATA0);
     return (
@@ -49,32 +52,31 @@ export default class myButton extends Component {
             cols={3}
           />
           <Text>Button Screen</Text>
-
             <Button
               style={{fontSize: 16,color: 'black', borderRadius: 0,paddingLeft: 20,}}
               type='primary'
               title='123'
-              onPress={() => Toast.showShortBottom('点击了primary按钮')}
+              onPress={() => this.handleToast('点击了primary按钮')}
             />
             <View style={styles.buttonCom}>
               <Button
                 type='default'
                 title='default'
-                onPress={() => Toast.showShortBottom('点击了default按钮')}
+                onPress={() => this.handleToast('点击了default按钮')}
               />
             </View>
             <View style={styles.buttonCom}>
               <Button
                 type='warn'
                 title='warn'
-                onPress={() => Toast.showShortBottom('点击了warn按钮')}
+                onPress={() => this.handleToast('点击了warn按钮')}
               />
             </View>
           <View style={styles.container}>
             <View style={styles.buttonCom}>
               <Button
                 title='默认'
-                onPress={() => Toast.showShortBottom('点击了defult按钮')}
+                onPress={() => this.handleToast('点击了defult按钮')}
               />
             </View>
             <View style={styles.buttonCom}>
@@ -82,14 +84,14 @@ export default class myButton extends Component {
                 style={{fontSize: 10,color: 'black',paddingLeft: 20}}
                 type='primary'
                 title='默认'
-                onPress={() => Toast.showShortBottom('点击了primary按钮')}
+                onPress={() => this.handleToast('点击了primary按钮')}
               />
             </View>
             <View style={styles.buttonCom}>
               <Button
                 icon='search'
                 title='搜索'
-                onPress={() => Toast.showShortBottom('点击了search按钮')}
+                onPress={() => this.handleToast('点击了search按钮')}
               />
             </View>
             <View style={styles.buttonCom}>
@@ -97,14 +99,14 @@ export default class myButton extends Component {
                 type='primary'
                 icon='search'
                 title='搜索'
-                onPress={() => Toast.showShortBottom('点击了搜索按钮')}
+                onPress={() => this.handleToast('点击了搜索按钮')}
               />
             </View>
             <View style={styles.buttonCom}>
               <Button
                 icon='download'
                 title='下载'
-                onPress={() => Toast.showShortBottom('点击了下载按钮')}
+                onPress={() => this.handleToast('点击了下载按钮')}
               />
             </View>
             <View style={styles.buttonCom}>
@@ -134,7 +136,6 @@ export default class myButton extends Component {
             dataSource={DATA}
             cols={4}
           />
-
         </ScrollView>
       </View>
     )

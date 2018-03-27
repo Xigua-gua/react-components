@@ -56,17 +56,9 @@ export default class Tab2 extends Component {
   render() {
     return (
       <View style={{marginTop: 30, marginBottom: 30,}}>
-
         <ScrollView >
         <ScrollTab />
           <View style={styles.item}>
-            <Text>Tab2 Screen</Text>
-            <View style={styles.buttonCom}>
-              <Button
-                onPress={() => this.handleToScore()}
-                title="123"
-              />
-            </View>
             <View style={styles.buttonCom}>
               <Button
                 style={styles.buttonCom}

@@ -59,3 +59,7 @@ export default class Timeline extends Component {
     )
   }
 }
+
+Timeline.propTypes = {
+
+}
