@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
  },
  letterText: {
     textAlign: 'center',
-    fontSize: Window.height*1.3/50,
+    fontSize: Window.height*1.2/50,
     color:'rgb(40,169,185)'
  },
  footerText: {
